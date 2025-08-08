@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Version>1.0.0</Version>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>WeChooz</Authors>
+    <Company></Company>
+    <PackageProjectUrl>https://github.com/wechooz/aspire-hosting-maildev</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/wechooz/aspire-hosting-maildev</RepositoryUrl>
+    <Description>WeChooz.Aspire.Hosting.MailDev is a .NET Aspire hosting integration to restore npm packages inside a .NET project </Description>
+    <RepositoryType>git</RepositoryType>
+    <Copyright>Copyright © WeChooz</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting" />
+    </ItemGroup>
+
+</Project>
