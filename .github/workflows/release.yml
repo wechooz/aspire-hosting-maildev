@@ -17,19 +17,26 @@ permissions:
   contents: read
 
 jobs:
-  call_buildAndPublish:
-    uses: ./.github/workflows/buildAndPublish.yml
+  build:
+    uses: ./.github/workflows/build.yml
     with:
-      feedUrl: https://api.nuget.org/v3/index.json
       forRelease: true
-    secrets:
-      feedAPIKey: ${{ secrets.NUGET_API_KEY }}
 
   generate_docs:
     uses: ./.github/workflows/generateDocs.yml
+
+  publish_package:
+    needs: [build, generate_docs]
+    uses: ./.github/workflows/publish.yml
+    with:
+      feedUrl: https://api.nuget.org/v3/index.json
+      environmentName: nuget
+    secrets:
+      feedAPIKey: ${{ secrets.NUGET_API_KEY }}
+    if: github.event_name == 'push'
     
   publish_docs:
-    needs: [call_buildAndPublish, generate_docs]
+    needs: [publish_package, generate_docs]
     permissions:
       pages: write
       id-token: write

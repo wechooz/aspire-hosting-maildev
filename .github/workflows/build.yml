@@ -1,24 +1,16 @@
 on:
     workflow_call:
       inputs:
-        feedUrl:
-          description: "NuGet feed URL"
-          required: true
-          type: string
         forRelease:
           description: "Run for release?"
           required: true
           type: boolean
-      secrets:
-        feedAPIKey:
-          description: "NuGet feed API key"
-          required: true
 
 jobs:
   build:
     strategy:
       fail-fast: false
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,9 +33,8 @@ jobs:
       - name: Build and Pack
         run: dotnet build -c Release -p:Version=${{ steps.version.outputs.version}}
 
-      - name: Push to NuGet package feed
-        env:
-          NUGET_URL: ${{ inputs.feedUrl }}
-          NUGET_API_KEY: ${{ secrets.feedAPIKey }}
-        run: dotnet nuget push '**/*.nupkg' --source "$($env:NUGET_URL)" --api-key "$($env:NUGET_API_KEY)"
-        if: github.event_name == 'push'
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: "**/*.nupkg"
