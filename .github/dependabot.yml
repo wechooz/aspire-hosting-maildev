@@ -27,8 +27,8 @@ updates:
       dotnet:
         patterns:
         - "*"
-        exclude-patterns:
-        - "Aspire.Hosting"
+    ignore:
+    - dependency-name: "Aspire.Hosting"
   
   - package-ecosystem: "dotnet-sdk" # See documentation for possible values
     directory: "/" # Location of package manifests
