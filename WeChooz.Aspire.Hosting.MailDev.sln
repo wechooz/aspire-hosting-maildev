@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -36,10 +36,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{B3F9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4D1E1DAE-2683-4855-8B29-EAFDD5435303}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\buildAndPublish.yml = .github\workflows\buildAndPublish.yml
+		.github\workflows\build.yml = .github\workflows\build.yml
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
 		.github\workflows\generateDocs.yml = .github\workflows\generateDocs.yml
+		.github\workflows\publish.yml = .github\workflows\publish.yml
 		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
