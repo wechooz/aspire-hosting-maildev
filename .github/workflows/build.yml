@@ -17,14 +17,14 @@ jobs:
 
       - name: Git Semantic Version
         id: version
-        uses: PaulHatch/semantic-version@v6.0.2
+        uses: PaulHatch/semantic-version@v6.0.3
         with:
           tag_prefix: ""
           version_format: "${major}.${minor}.${patch}${{ !inputs.forRelease && '-preview${increment}' || '' }}"
           search_commit_body: true
 
       - name: Setup dotnet ${{ env.DOTNET_VERSION }}
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
