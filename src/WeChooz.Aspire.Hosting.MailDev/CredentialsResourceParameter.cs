@@ -2,4 +2,4 @@
 
 namespace WeChooz.Aspire.Hosting.MailDev;
 
-internal record CredentialsResourceParameter(ParameterResource Username,    ParameterResource Password);
+internal record CredentialsResourceParameter(ParameterResource Username, ParameterResource Password);
