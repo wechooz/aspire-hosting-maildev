@@ -8,9 +8,6 @@ on:
   schedule:
     - cron: '38 16 * * 5'
 
-env:
-  DOTNET_VERSION: '10.0.x'
-
 jobs:
   analyze:
     name: Analyze

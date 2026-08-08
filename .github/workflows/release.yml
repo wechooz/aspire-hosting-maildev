@@ -21,6 +21,8 @@ jobs:
   publish_package:
     needs: [build, generate_docs]
     uses: ./.github/workflows/publish-packages-nuget.yml
+    permissions:
+      id-token: write
     with:
       environmentName: nuget
     secrets:
